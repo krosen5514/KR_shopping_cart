@@ -48,7 +48,7 @@ print("----------------")
 
 print("Here's your receipt:")
 print("----------------")
-print("Transaction Date and time:", datetime.now())
+print("Transaction Date and time:", (datetime.strptime(datetime.today().strftime("%Y-%m-%d %H:%M:%S"),"%Y-%m-%d %H:%M:%S")))
 print("Grocery Mart Phone #: 555-0124")
 print("----------------")
 print("You bought the following products:")
