@@ -42,21 +42,24 @@ while True:
     print(selected_id)
 print("Thanks for checking out at the Grocery Mart!")
 print("----------------")
-
-# 2) Perform product lookups to determine what the product's name and price are
-#selected_ids = ["1","2","3","2","1"]
-
 print("Here's your receipt:")
 print("----------------")
-print("Transaction Date and time:", (datetime.strptime(datetime.today().strftime("%Y-%m-%d %H:%M:%S"),"%Y-%m-%d %H:%M:%S")))
+
+print("Transaction Date and time:", (datetime.strptime(datetime.today().strftime("%Y-%m-%d %H:%M"),"%Y-%m-%d %H:%M")))
 print("Grocery Mart Phone #: 555-0124")
 print("----------------")
 print("You bought the following products:")
 
+def to_usd(my_price):
+    return f"${my_price:,.2f}"
+
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
-    print(matching_product["name"], matching_product["price"])
+    print(matching_product["name"], to_usd(matching_product["price"]))
+
+print("----------------")
+
 
 print("----------------")
 print("Thanks for shopping at the grocery mart! Have a great day!")
