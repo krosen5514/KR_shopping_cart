@@ -59,7 +59,13 @@ for selected_id in selected_ids:
     print(matching_product["name"], to_usd(matching_product["price"]))
 
 print("----------------")
+sum_price = []
+for selected_id in selected_ids:
+    matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+    matching_product = matching_products[0]
+    sum_price.append((matching_product["price"]))
 
+print("Subtotal:", to_usd(sum(sum_price)))
 
 print("----------------")
 print("Thanks for shopping at the grocery mart! Have a great day!")
