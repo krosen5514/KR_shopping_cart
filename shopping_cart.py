@@ -1,6 +1,6 @@
 #import os
 #import dotenv
-
+from datetime import datetime
 #dotenv.load_dotenv()
 #Tax_Rate = os.getenv("NYC_Tax")
 
@@ -27,10 +27,9 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-#def to_usd(my_price):
-    #return f"${my_price:,.2f}" #> $12,000.71
-# 1) capture product ids until we're done
-# (use infinite while loop)
+def to_usd(my_price):
+    return f"${my_price:,.2f}" 
+
 print("Welcome to the grocery mart")
 
 selected_ids = []
@@ -49,16 +48,19 @@ print("----------------")
 
 print("Here's your receipt:")
 print("----------------")
+print("Transaction Date and time:", datetime.now())
+print("Grocery Mart Phone #: 555-0124")
+print("----------------")
+print("You bought the following products:")
+
 for selected_id in selected_ids:
-    #print(selected_id)
-  
-    # lookup the corresponding product!
-    # or maybe display the selected product's name and price
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     print(matching_product["name"], matching_product["price"])
 
+print("----------------")
 print("Thanks for shopping at the grocery mart! Have a great day!")
+
 # grocery store name of your choice
 #A grocery store phone number and/or website URL and/or address of choice
 #The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
