@@ -73,9 +73,17 @@ print("Sales Tax:", sales_tax)
 
 total_price = to_usd(sum(sum_price)*1.0875)
 print("Total Price:", total_price)
-
 print("----------------")
-print(input("Would you like a copy of your receipt?:",()))
+
+
+#email_receipt = input("Would you like a copy of your receipt?: "
+
+#if email_receipt.upper =="YES":
+    #print("Valid. Keep Going!")
+#else: 
+  #  print("OOPS, Invalid input. Please try again.")
+   # exit()
+
 print("Thanks for shopping at the grocery mart! Have a great day!")
 
 # grocery store name of your choice
