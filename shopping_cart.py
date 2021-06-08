@@ -65,9 +65,17 @@ for selected_id in selected_ids:
     matching_product = matching_products[0]
     sum_price.append((matching_product["price"]))
 
-print("Subtotal:", to_usd(sum(sum_price)))
+subtotal = to_usd(sum(sum_price))
+print("Subtotal:", subtotal)
+
+sales_tax = to_usd(sum(sum_price)*.0875)
+print("Sales Tax:", sales_tax)
+
+total_price = to_usd(sum(sum_price)*1.0875)
+print("Total Price:", total_price)
 
 print("----------------")
+print(input("Would you like a copy of your receipt?:",()))
 print("Thanks for shopping at the grocery mart! Have a great day!")
 
 # grocery store name of your choice
