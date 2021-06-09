@@ -76,14 +76,13 @@ print("Total Price:", total_price)
 print("----------------")
 
 
-#email_receipt = input("Would you like a copy of your receipt?: "
+email_receipt = input("Would you like a copy of your receipt?:")
 
-#if email_receipt.upper =="YES":
-    #print("Valid. Keep Going!")
-#else: 
-  #  print("OOPS, Invalid input. Please try again.")
-   # exit()
-
+if email_receipt.upper() == "YES":
+    print("Sounds great, we'll email you a copy!")
+else: 
+  print("No problem, we'll keep the copy.")
+print("----------------")
 print("Thanks for shopping at the grocery mart! Have a great day!")
 
 # grocery store name of your choice
