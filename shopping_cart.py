@@ -1,8 +1,10 @@
-#import os
-#import dotenv
+import os
+import dotenv
 from datetime import datetime
-#dotenv.load_dotenv()
-#Tax_Rate = os.getenv("NYC_Tax")
+from dotenv import load_dotenv
+
+load_dotenv()
+TAX_RATE = float(os.getenv("TAX_RATE",default = ".1"))
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -68,10 +70,10 @@ for selected_id in selected_ids:
 subtotal = to_usd(sum(sum_price))
 print("Subtotal:", subtotal)
 
-sales_tax = to_usd(sum(sum_price)*.0875)
+sales_tax = to_usd(sum(sum_price)*TAX_RATE)
 print("Sales Tax:", sales_tax)
 
-total_price = to_usd(sum(sum_price)*1.0875)
+total_price = to_usd(sum(sum_price)*(1+TAX_RATE))
 print("Total Price:", total_price)
 print("----------------")
 
@@ -80,8 +82,10 @@ email_receipt = input("Would you like a copy of your receipt?:")
 
 if email_receipt.upper() == "YES":
     print("Sounds great, we'll email you a copy!")
+    
 else: 
   print("No problem, we'll keep the copy.")
+
 print("----------------")
 print("Thanks for shopping at the grocery mart! Have a great day!")
 
