@@ -1,7 +1,10 @@
 import os
 import dotenv
+import sendgrid
 from datetime import datetime
 from dotenv import load_dotenv
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 load_dotenv()
 TAX_RATE = float(os.getenv("TAX_RATE",default = ".1"))
@@ -66,7 +69,7 @@ for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     sum_price.append((matching_product["price"]))
-
+  
 subtotal = to_usd(sum(sum_price))
 print("Subtotal:", subtotal)
 
@@ -77,14 +80,21 @@ total_price = to_usd(sum(sum_price)*(1+TAX_RATE))
 print("Total Price:", total_price)
 print("----------------")
 
-
-email_receipt = input("Would you like a copy of your receipt?:")
-
-if email_receipt.upper() == "YES":
-    print("Sounds great, we'll email you a copy!")
-    
-else: 
-  print("No problem, we'll keep the copy.")
+#Doesn't work :(
+#email_receipt = input("We'll email you a copy of your receipt, what's your email?")
+#load_dotenv()
+#message = Mail(
+#    from_email='Grocerymart@shopping.com',
+ #   to_emails= str(email_receipt),
+  #  subject='Sending with Twilio SendGrid is Fun',
+   # html_content='<strong>and easy to do anywhere, even with Python</strong>')
+#try:
+ #   sg = SendGridAPIClient(os.getenv("KR_SENDGRID_KEY"))
+  ## print(response.status_code)
+    #print(response.body)
+    #print(response.headers)
+#except Exception as e:
+ #   print(message)
 
 print("----------------")
 print("Thanks for shopping at the grocery mart! Have a great day!")
